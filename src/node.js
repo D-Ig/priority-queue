@@ -33,17 +33,12 @@ class Node {
   }
 
   remove() {
-    if (this.parent === null) {
-      return; // questionable
+    if (this.parent !== null) {
+      this.parent.removeChild(this);
     }
-    this.parent.removeChild(this);
   }
 
   swapWithParent() {
-    if (this.parent === null) {
-      return; // questionable
-    }
-
     const updateParentParentChild = () => {
       const parentOfParent = this.parent.parent;
       const parentOfNode = this.parent;
@@ -89,9 +84,11 @@ class Node {
       this.parent = upperParrent;
     };
 
-    updateParentParentChild();
-    updateChildren();
-    updateParents();
+    if (this.parent !== null) {
+      updateParentParentChild();
+      updateChildren();
+      updateParents();
+    }
   }
 }
 
