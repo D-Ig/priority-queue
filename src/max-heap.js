@@ -12,6 +12,7 @@ class MaxHeap {
     this.shiftNodeUp(node);
   }
 
+  // eslint-disable-next-line consistent-return
   pop() {
     if (this.root !== null) {
       const detachedRoot = this.detachRoot();

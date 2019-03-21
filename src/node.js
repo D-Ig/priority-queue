@@ -10,7 +10,7 @@ class Node {
 
   appendChild(node) {
     if (this.left !== null && this.right !== null) {
-      return; // questionable
+      return;
     }
     node.parent = this;
     if (this.left === null) {
@@ -57,7 +57,8 @@ class Node {
       const rightChild = this.right;
       if (leftChild !== null) {
         leftChild.parent = this.parent;
-      } else if (rightChild !== null) {
+      }
+      if (rightChild !== null) {
         rightChild.parent = this.parent;
       }
       let remainingChild;
